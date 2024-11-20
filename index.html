@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .timer {
+            font-size: 2em;
+            color: #333;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            margin: 20px 0;
+        }
+        .description {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown Since October 15, 2024, 11:00 PM</h1>
+    <img src="your-photo.jpg" alt="Your Image">
+    <p class="timer" id="timer">Loading...</p>
+    <p class="description">This timer tracks the time since our memorable moment!</p>
+
+    <script>
+        function updateTimer() {
+            const startTime = new Date('2024-10-15T23:00:00');
+            const now = new Date();
+            const diff = now - startTime;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('timer').innerHTML = 
+                `${days} Days, ${hours} Hours, ${minutes} Minutes`;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
